@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from enum import Enum
+from datetime import datetime
 
 app = FastAPI(
     title='Poster'
@@ -10,9 +11,9 @@ app = FastAPI(
 #################################
 
 fake_users = [
-    {'id': 0, 'name': 'Anton', 'surname': 'Belyaev', 'age': 23, 'nickname': 'ANTONIDAS', 'gender': 'male'},
-    {'id': 1, 'name': 'Vladislav', 'surname': 'Kolmakov', 'age': 24, 'nickname': 'imfoslash', 'gender': 'male'},
-    {'id': 2, 'name': 'Sonya', 'surname': 'Chukanova', 'age': 27, 'nickname': 'kotik', 'gender': 'female'},
+    {'id': 0, 'name': 'Anton', 'surname': 'Belyaev', 'password': '123', 'age': 23, 'nickname': 'ANTONIDAS', 'gender': 'male', 'registred_at': '2020-01-01T00:00:00'},
+    {'id': 1, 'name': 'Vladislav', 'surname': 'Kolmakov', 'password': '123', 'age': 24, 'nickname': 'imfoslash', 'gender': 'male', 'registred_at': '2020-01-01T00:00:00'},
+    {'id': 2, 'name': 'Sonya', 'surname': 'Chukanova', 'password': '123', 'age': 27, 'nickname': 'kotik', 'gender': 'female', 'registred_at': '2020-01-01T00:00:00'},
 ]
 
 fake_notes = [
@@ -29,8 +30,10 @@ class User(BaseModel):
     name: str
     surname: str
     nickname: str = Field(max_length=20)
+    password: str
     age: int = Field(ge=0)
     gender: str
+    registred_at: datetime
 
 class Note(BaseModel):
     id: int

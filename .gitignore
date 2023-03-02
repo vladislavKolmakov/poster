@@ -1,2 +1,5 @@
 /venv
 /__pycache__
+.env
+./models/__pycache__/models.cpython-310.pyc
+migrations/versions/__pycache__/c051571f2f1a_db_creation.cpython-310.pyc
