@@ -20,10 +20,13 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     name = Column(String, nullable=False)
     surname = Column(String, nullable=True)
     nickname = Column(String, nullable=True)
-    password = Column(String, nullable=True)
     age = Column(Integer, nullable=True)
     gender = Column(String, nullable=True)
     registred_at = Column(TIMESTAMP, default=datetime.utcnow)
+    hashed_password: str = Column(String(length=1024), nullable=False)
+    is_active: bool = Column(Boolean, default=True, nullable=False)
+    is_superuser: bool = Column(Boolean, default=False, nullable=False)
+    is_verified: bool = Column(Boolean, default=False, nullable=False)
 
 
 engine = create_async_engine(DATABASE_URL)
