@@ -3,3 +3,5 @@ alembic
 sqlalchemy
 psycopg2
 dotenv
+asyncpg
+fastapi_users==10.2.1
