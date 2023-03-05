@@ -48,6 +48,7 @@ class Note(BaseModel):
 def get_notes(notes_id: int):
     return [notes for notes in fake_notes  if notes.get('id') == notes_id]
 
+
 # TODO find user by user.name/user.surname/user.nickname
 @app.get('/get_user/{user_id}')
 def get_user(user_id: int):
